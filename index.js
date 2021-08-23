@@ -25,5 +25,19 @@ rollBtn.addEventListener('click', function() {
         message.textContent = "Player 2 Turn"
         player2ScoreBoard.textContent = player2Score += randNum    
     }
+
+    if (player1Score >= 20) {
+        message.textContent = "Player 1 has won!"
+        reset()
+    } else if (player2Score >= 20) {
+        message.textContent = "Player 2 has won!" 
+        reset()       
+    }
+
     player1Turn = !player1Turn
 })
+
+function reset() {
+    rollBtn.style.display = "none"
+    resetBtn.style.display = "block"
+}
