@@ -28,16 +28,35 @@ rollBtn.addEventListener('click', function() {
 
     if (player1Score >= 20) {
         message.textContent = "Player 1 has won!"
-        reset()
+        showDisplayBtn()
     } else if (player2Score >= 20) {
         message.textContent = "Player 2 has won!" 
-        reset()       
+        showDisplayBtn()       
     }
 
     player1Turn = !player1Turn
 })
 
-function reset() {
+function showDisplayBtn() {
     rollBtn.style.display = "none"
     resetBtn.style.display = "block"
+}
+
+resetBtn.addEventListener("click", function() {
+    reset()
+})
+
+function reset() {
+    player1ScoreBoard.textContent = 0
+    player2ScoreBoard.textContent = 0
+    player1Dice.textContent = "-"
+    player2Dice.textContent = "-"
+    message.textContent = "Player 1 Turn"
+    player1Score = 0
+    player2Score = 0
+    player1Turn = true
+    resetBtn.style.display = "none"
+    rollBtn.style.display = "block"
+    player2Dice.classList.remove("active")
+    player1Dice.classList.add("active")
 }
